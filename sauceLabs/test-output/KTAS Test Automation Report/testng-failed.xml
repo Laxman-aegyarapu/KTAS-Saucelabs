@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [KTAS Test Automation Report]">
+  <parameter name="DeviceID" value="1"/>
+  <parameter name="AppType" value="Mobile"/>
+  <parameter name="MOBILE_OS" value="Android"/>
+  <test name="1" group-by-instances="true">
+    <parameter name="DeviceID" value="1"/>
+    <parameter name="AppType" value="Mobile"/>
+    <parameter name="MOBILE_OS" value="Android"/>
+    <groups>
+      <run>
+        <include name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.kony.ktas.suites.WelcomeScreenSuite"/>
+    </classes>
+  </test> <!-- 1 -->
+  <test name="1(failed)">
+    <parameter name="DeviceID" value="1"/>
+    <parameter name="AppType" value="Mobile"/>
+    <parameter name="MOBILE_OS" value="Android"/>
+    <groups>
+      <run>
+        <include name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.kony.ktas.suites.WelcomeScreenSuite">
+        <methods>
+          <include name="VerifyWelcomePage"/>
+        </methods>
+      </class> <!-- com.kony.ktas.suites.WelcomeScreenSuite -->
+    </classes>
+  </test> <!-- 1(failed) -->
+</suite> <!-- Failed suite [KTAS Test Automation Report] -->
