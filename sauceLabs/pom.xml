@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kony.ktas.sauceLabs</groupId>
-	<artifactId>sauceLabs</artifactId>
+	<artifactId>SauceLabs_KTAS_GIT</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
@@ -36,7 +36,7 @@
 						<additionalClasspathElement>Downloads/*.jar</additionalClasspathElement>
 					</additionalClasspathElements>
 				</configuration>
-			</plugin>
+			</plugin> 
 
                 <!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -55,6 +55,9 @@
 				<version>2.22.0</version>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
+				<!-- <threadCount>40</threadCount>
+				<parallel>methods</parallel> -->
+				<redirectTestOutputToFile>false</redirectTestOutputToFile>
 				<useSystemClassLoader>false</useSystemClassLoader>
 					<systemPropertyVariables>
 						<test.process>NA</test.process>
@@ -95,18 +98,21 @@
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
 			<version>5.0.4</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.relevantcodes</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>2.41.2</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.9.10</version>
+			 <scope>test</scope>
 		</dependency>
 
 		<dependency>

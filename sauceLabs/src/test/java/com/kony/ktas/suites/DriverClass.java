@@ -25,28 +25,35 @@ public class DriverClass {
 	public static volatile AppiumDriver<MobileElement> driver=null;
 	
 	
-	/*public AndroidDriver<MobileElement> launchApp() throws MalformedURLException {
+	public AndroidDriver<MobileElement> launchApp() throws MalformedURLException {
 		
 		Log.info("Intiated Method to Launch the application on Saucelabs...");
 		
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-	    capabilities.setCapability("platformName", "Android");
-	    capabilities.setCapability("deviceName", "Samsung Galaxy S8 GoogleAPI Emulator");
-	    capabilities.setCapability("platformVersion", "7.0");
-	    capabilities.setCapability("app", "https://s3.ap-south-1.amazonaws.com/mybuckkony/amplify14.apk");
-	    capabilities.setCapability("browserName", "");
-	    capabilities.setCapability("deviceOrientation", "portrait");
-	    capabilities.setCapability("appiumVersion", "1.8.1");
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("appiumVersion", "1.8.0");
+		caps.setCapability("deviceName","Samsung Galaxy S8 GoogleAPI Emulator");
+		caps.setCapability("deviceOrientation", "portrait");
+		caps.setCapability("browserName", "");
+		caps.setCapability("platformVersion","7.0");
+		caps.setCapability("platformName","Android");
+		caps.setCapability("app","sauce-storage:amplify14.apk");
+		//caps.setCapability("app", ReadPropertyData.readMI("APK_PATH"));
 	    
-	    capabilities.setCapability("appPackage", "com.orgname.ABBAfe");
-	    capabilities.setCapability("appActivity", "com.orgname.ABBAfe.ABBAfe");
+	    caps.setCapability("appPackage", "com.orgname.ABBAfe");
+	    caps.setCapability("appActivity", "com.orgname.ABBAfe.ABBAfe");
+	    
+	    USERNAME=ReadPropertyData.readMI("USERNAME");
+	    ACCESS_KEY=ReadPropertyData.readMI("ACCESS_KEY");
+	    URL="https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+	    
+	    
 	 
-	    driver = new AndroidDriver<>(new URL(URL), capabilities);
+	    driver = new AndroidDriver<>(new URL(URL), caps);
 	  
 	    return (AndroidDriver<MobileElement>) driver;
-	}*/
+	}
 	
-    public AndroidDriver<MobileElement> launchApp() throws MalformedURLException {
+   /* public AndroidDriver<MobileElement> launchApp() throws MalformedURLException {
 		
 		Log.info("Intiated Method to Launch the application on Saucelabs...");
 		
@@ -57,6 +64,7 @@ public class DriverClass {
 	    capabilities.setCapability("platformVersion", ReadPropertyData.readMI(Integer.toString(1),"MOBILE_VERSION_Android"));
 	    
 	    capabilities.setCapability("app", ReadPropertyData.readMI("APK_PATH"));
+	    
 	    capabilities.setCapability("browserName", "");
 	    capabilities.setCapability("deviceOrientation", "portrait");
 	    capabilities.setCapability("appiumVersion", ReadPropertyData.readMI("appiumVersion_Android"));
@@ -72,5 +80,45 @@ public class DriverClass {
 	  
 	    return (AndroidDriver<MobileElement>) driver;
 	}
+*/
+	
+	/* public AndroidDriver<MobileElement> launchApp() throws MalformedURLException {
+			
+			Log.info("Intiated Method to Launch the application on Saucelabs...Jenkins");
+			
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			
+			Log.info("Printing Env variables...");
+			
+			System.out.println("Platform is :: "+System.getenv("SELENIUM_PLATFORM"));
+			System.out.println("Device name is :: "+System.getenv("SELENIUM_DEVICE"));
+			System.out.println("platform version is :: "+System.getenv("SELENIUM_VERSION"));
+			
+			System.out.println("UserName :: "+System.getenv("SAUCE_USERNAME"));
+			System.out.println("AccessKey :: "+System.getenv("SAUCE_ACCESS_KEY"));
+			
+			
+		    capabilities.setCapability("platformName",  System.getenv("SELENIUM_PLATFORM"));
+		    capabilities.setCapability("deviceName", System.getenv("SELENIUM_DEVICE"));
+		    capabilities.setCapability("platformVersion", System.getenv("SELENIUM_VERSION"));
+		    
+		    capabilities.setCapability("app", ReadPropertyData.readMI("APK_PATH"));
+		   // capabilities.setCapability("browserName", "");
+		    capabilities.setCapability("deviceOrientation", System.getenv("SELENIUM_DEVICE_ORIENTATION "));
+		   // capabilities.setCapability("appiumVersion", ReadPropertyData.readMI("appiumVersion_Android"));
+		    
+		    capabilities.setCapability("appPackage", ReadPropertyData.readMI("PACKAGE_NAME"));
+		    capabilities.setCapability("appActivity", ReadPropertyData.readMI("ACTIVITY_NAME"));
+		 
+		    //USERNAME=ReadPropertyData.readMI("USERNAME");
+		    //ACCESS_KEY=ReadPropertyData.readMI("ACCESS_KEY");
+		    URL="https://" + System.getenv("SAUCE_USERNAME") + ":" + System.getenv("SAUCE_ACCESS_KEY") + "@ondemand.saucelabs.com:443/wd/hub";
+		    
+		    driver = new AndroidDriver<>(new URL(URL), capabilities);
+		  
+		    return (AndroidDriver<MobileElement>) driver;
+		    
+		   //System.getenv("SAUCE_NATIVE_APP")
+		}*/
 
 }

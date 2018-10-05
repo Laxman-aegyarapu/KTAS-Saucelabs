@@ -1,5 +1,8 @@
 package com.kony.ktas.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
 import com.kony.ktas.common.Log;
 import com.kony.ktas.mobile.common.MobileBaseUtils;
 
@@ -8,10 +11,10 @@ import io.appium.java_client.MobileElement;
 
 public class WelComeScreen extends MobileBaseUtils{
 	
-	MobileElement headerTxt;
-	MobileElement subTxt_AreYouAnABO;
-	MobileElement btnYes;
-	MobileElement btnNO;
+	public static volatile MobileElement headerTxt;
+	public static volatile MobileElement subTxt_AreYouAnABO;
+	public static volatile MobileElement btnYes;
+	public static volatile MobileElement btnNO;
 	
 	
 	public WelComeScreen(AppiumDriver<MobileElement> driver){
@@ -47,8 +50,12 @@ public class WelComeScreen extends MobileBaseUtils{
 	
 	public void clickonNobtn() throws Exception {
 		
-		Log.info("Intiated method to click on No button in welcome screen..");
+		Log.info("******Intiated method to click on No button in welcome screen..********");
+		
+		waitForElement("NoButton");
 		clickElement("NoButton");
+		Log.info("********Clicked on NO button..********");
+
     }
 	
 }

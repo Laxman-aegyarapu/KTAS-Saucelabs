@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="KTAS Test Automation Report" thread-count="1">
+<suite name="KTAS Test Automation Report">
     
-    <listeners>
+    <!-- <listeners>
 		<listener class-name="com.kony.ktas.reports.KReports.ExtentReportListener" />
-		<listener class-name="com.kony.ktas.reports.KReports.ExcelListener" />
-	</listeners>
+		<listener class-name="com.kony.ktas.reports.KReports.ExcelListener" /> 
+	</listeners> -->
     
 	<test group-by-instances="true" name="1">
 		<parameter name="AppType" value="Mobile" />
@@ -18,7 +18,7 @@
 		</groups>
 
 		<classes>
-			<class name="com.kony.ktas.suites.WelcomeScreenSuite" />
+			<class name="com.kony.ktas.suites.SampleSuite" />
 		</classes>
 	</test>
 
